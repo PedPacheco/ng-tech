@@ -1,64 +1,87 @@
+/* eslint-disable import/no-duplicates */
+import { ErrorMessage } from "@hookform/error-message";
 import Image from "next/image";
-import React, { useState } from "react";
-import { X } from "phosphor-react";
+import Link from "next/link";
+import { useForm } from "react-hook-form";
+import { Input } from "~/components/Input";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  function handleLogin(data: any) {
+    console.log(data);
+  }
 
   return (
     <>
-      <div className="flex flex-col items-center justify-center h-[100vh] ">
-        <div className="bg-black w-full flex items-center">
-          <button>
-            <X />
-          </button>
-          <Image
-            src="/logo.png"
-            alt="Logo NG.CASH"
-            width={160}
-            height={30}
-            className=""
-          />
-        </div>
-        <form className="w-full h-full shadow bg-black flex flex-col justify-center items-center">
-          <div className="flex justify-center pb-4">
-            <h2 className="text-white text-2xl font-bold">
-              Entre na sua conta NG
-            </h2>
+      <div className="bg-black w-full h-24 flex items-center shadow-lg justify-center">
+        <Image src="/logo.png" alt="Logo NG.CASH" width={160} height={30} />
+      </div>
+      <div className="flex items-center justify-center h-[100vh] lg:h-[80vh]">
+        <form
+          className="w-full lg:w-[600px] h-full lg:h-[586px] lg:rounded-lg shadow-lg bg-white flex flex-col justify-center items-center"
+          onSubmit={handleSubmit(handleLogin)}
+        >
+          <div className="w-72 flex justify-start pb-4 px-2 mr-6 mb-10">
+            <h2 className=" text-2xl font-semibold">Entre na sua conta NG</h2>
           </div>
 
           <div>
-            <div className="flex flex-col py-3">
-              <label htmlFor="usuario" className="text-white">
-                Usuario
-              </label>
-              <input
-                className="h-14 w-72 mt-3 px-2 rounded bg-transparent border border-solid border-zinc-700 outline-none text-white"
-                type="text"
-                id="usuario"
-                value={email}
-                onChange={(event) => setEmail(event.target.value)}
-              />
-            </div>
+            <Input
+              text="Nome de usuário"
+              register={register}
+              name="username"
+              rules={{
+                required: "Usário deve ser inserido",
+              }}
+              fieldname="username"
+            />
 
-            <div className="flex flex-col py-3">
-              <label htmlFor="password" className="text-white">
-                Senha
-              </label>
-              <input
-                className="h-14 w-72 mt-3 px-2 rounded bg-transparent border border-solid border-zinc-700 outline-none text-white"
-                type="password"
-                id="password"
-                value={password}
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </div>
+            <ErrorMessage
+              errors={errors}
+              name="username"
+              render={({ message }) => (
+                <p className="text-red-600 w-72">{message}</p>
+              )}
+            />
+
+            <Input
+              text="Senha"
+              type="password"
+              name="password"
+              fieldname="password"
+              register={register}
+              rules={{
+                required: "Senha deve ser inserida",
+              }}
+            />
           </div>
 
-          <div className="flex flec-col">
-            <button type="submit">Login</button>
-            <button type="button">Cadastrar-se</button>
+          <ErrorMessage
+            errors={errors}
+            name="password"
+            render={({ message }) => (
+              <p className="text-red-600 w-72">{message}</p>
+            )}
+          />
+
+          <div className="flex flex-col items-center justify-center ">
+            <button
+              type="submit"
+              className="w-72 h-9 bg-transparent text-zinc-900 transition-colors border-zinc-700 border-2 mt-4 mb-10 rounded-xl  font-medium"
+            >
+              entrar
+            </button>
+            <p className="w-72 h-9 bg-transparent text-zinc-700 self-start font-medium">
+              Não tem uma conta?{" "}
+              <Link href="cadastrar" className="text-[#8257E5]">
+                Cadastre-se
+              </Link>
+            </p>
           </div>
         </form>
       </div>

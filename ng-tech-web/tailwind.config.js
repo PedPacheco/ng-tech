@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      sans: ["Inter", "sans-serif"],
+      sans: ["IBM Plex Sans", "sans-serif"],
     },
     extend: {},
   },
