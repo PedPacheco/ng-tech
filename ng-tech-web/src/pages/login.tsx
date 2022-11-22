@@ -89,11 +89,11 @@ export default function Login() {
           <div className="flex flex-col items-center justify-center ">
             <button
               type="submit"
-              className="w-72 h-9 bg-transparent text-zinc-900 transition-colors border-zinc-700 border-2 mt-4 mb-10 rounded-xl font-medium"
+              className="w-72 h-9 bg-transparent text-zinc-900 border-zinc-900 hover:border-zinc-600 hover:text-zinc-600 transition-colors border-2 mt-4 mb-10 rounded-xl font-medium cursor-pointer"
             >
               entrar
             </button>
-            <p className="w-72 h-9 bg-transparent text-zinc-700 self-start font-medium">
+            <p className="w-72 h-9 bg-transparent text-zinc-700 self-start font-medium ">
               Não tem uma conta?{" "}
               <Link href="cadastrar" className="text-[#8257E5]">
                 Cadastre-se

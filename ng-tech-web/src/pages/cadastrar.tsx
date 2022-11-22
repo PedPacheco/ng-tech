@@ -1,7 +1,7 @@
 /* eslint-disable import/no-duplicates */
 import { ErrorMessage } from "@hookform/error-message";
-import Image from "next/image";
 import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
 import Router from "next/router";
 import nookies from "nookies";
@@ -128,11 +128,11 @@ export default function Login() {
           <div className="flex flex-col items-center justify-center ">
             <button
               type="submit"
-              className="w-72 h-9 bg-transparent text-zinc-900 transition-colors rounded-xl mb-10 mt-4 border-zinc-700 border-2 font-medium"
+              className="w-72 h-9 bg-transparent text-zinc-900 rounded-xl mb-10 mt-4 border-zinc-900 hover:border-zinc-600 hover:text-zinc-600 transition-colors border-2 font-medium cursor-pointer"
             >
               Cadastre-se
             </button>
-            <p className="w-72 h-9 bg-transparent text-zinc-900 self-start font-medium">
+            <p className="w-72 h-9 bg-transparent text-zinc-900 self-start font-medium ">
               Já tem uma conta?{" "}
               <Link href="cadastrar" className="text-[#8257E5]">
                 Entrar

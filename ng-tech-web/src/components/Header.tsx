@@ -63,13 +63,14 @@ export function Header({ username }: HeaderProps) {
           } bg-white lg:bg-transparent fixed top-24 left-auto right-8 rounded-2xl overflow-auto pt-2 shadow-md lg:static lg:flex items-stretch lg:pb-1 mr-1`}
         >
           <div className="lg:flex lg:items-stretch lg:justify-start lg:mr-auto">
-            <p className="bg-transparent p-4 lg:p-0 lg:py-2 lg:px-3 font-bold text-lg lg:text-white">
+            <p className="bg-transparent p-4 lg:p-0 lg:py-2 lg:px-3 font-bold text-lg lg:text-white ">
               {username?.toUpperCase()}
+              FELIPE
             </p>
             <p className="bg-transparent p-4 lg:p-0 lg:py-2 lg:px-3 font-bold text-lg lg:text-white">
               SALDO: R$ {balance}
             </p>
-            <p className="bg-transparent p-4 lg:p-0 lg:py-2 lg:px-3 font-bold text-lg lg:text-white">
+            <p className="bg-transparent p-4 lg:p-0 lg:py-2 lg:px-3 font-bold text-lg lg:text-white lg:hover:text-zinc-300 transition-colors cursor-pointer">
               SAIR
             </p>
           </div>
