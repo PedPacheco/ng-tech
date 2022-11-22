@@ -73,6 +73,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       }
     })
 
+    console.log(addTransfer, transfer)
     return addTransfer
   }
 }

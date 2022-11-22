@@ -1,9 +1,11 @@
 /* eslint-disable import/no-duplicates */
 import { ErrorMessage } from "@hookform/error-message";
 import Image from "next/image";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
-import { useForm } from "react-hook-form";
+import Router from "next/router";
+import nookies from "nookies";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "~/components/Input";
 
 export default function Login() {
@@ -12,11 +14,30 @@ export default function Login() {
     watch,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FieldValues>();
 
-  function handleSignIn(data: any) {
-    console.log(data);
-  }
+  const handleSignIn: SubmitHandler<FieldValues> = async (data) => {
+    const response = await axios
+      .post("http://localhost:3333/cadastrar", {
+        username: data.username,
+        password: data.password,
+      })
+      .then((response) => {
+        return response.data;
+      });
+
+    nookies.set(undefined, "token", response.token, {
+      maxAge: 30 * 24 * 60 * 60,
+    });
+
+    const user = JSON.parse(response.user);
+
+    nookies.set(undefined, "user", user, {
+      maxAge: 30 * 24 * 60 * 60,
+    });
+
+    Router.push("/");
+  };
 
   return (
     <>

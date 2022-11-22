@@ -9,6 +9,7 @@ export class HandleTransferController {
   handle(reqParams: any, reqQuery: any, reqBody: HandleTransferRequest) {
     const { amount, fromUsername, toUsername } = reqBody;
 
+    console.log(amount, fromUsername, toUsername)
     return this.useCase.execute({
       amount,
       fromUsername,

@@ -1,8 +1,11 @@
 /* eslint-disable import/no-duplicates */
 import { ErrorMessage } from "@hookform/error-message";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import Router from "next/router";
+import { setCookie } from "nookies";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "~/components/Input";
 
 export default function Login() {
@@ -10,18 +13,32 @@ export default function Login() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<FieldValues>();
 
-  function handleLogin(data: any) {
-    console.log(data);
-  }
+  const handleLogin: SubmitHandler<FieldValues> = async (data) => {
+    const response = await axios
+      .post("http://localhost:3333/login", {
+        username: data.username,
+        password: data.password,
+      })
+      .then((response) => {
+        return response.data;
+      });
+
+    const user = JSON.stringify(response.user);
+
+    setCookie(undefined, "token", response.token);
+    setCookie(undefined, "userCookies", user);
+
+    Router.push("/");
+  };
 
   return (
     <>
       <div className="bg-black w-full h-24 flex items-center shadow-lg justify-center">
         <Image src="/logo.png" alt="Logo NG.CASH" width={160} height={30} />
       </div>
-      <div className="flex items-center justify-center h-[100vh] lg:h-[80vh]">
+      <div className="flex items-center justify-center h-[100vh]">
         <form
           className="w-full lg:w-[600px] h-full lg:h-[586px] lg:rounded-lg shadow-lg bg-white flex flex-col justify-center items-center"
           onSubmit={handleSubmit(handleLogin)}
@@ -72,7 +89,7 @@ export default function Login() {
           <div className="flex flex-col items-center justify-center ">
             <button
               type="submit"
-              className="w-72 h-9 bg-transparent text-zinc-900 transition-colors border-zinc-700 border-2 mt-4 mb-10 rounded-xl  font-medium"
+              className="w-72 h-9 bg-transparent text-zinc-900 transition-colors border-zinc-700 border-2 mt-4 mb-10 rounded-xl font-medium"
             >
               entrar
             </button>
