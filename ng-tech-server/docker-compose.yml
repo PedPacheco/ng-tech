@@ -1,0 +1,32 @@
+version: '1'
+services:
+  ng-postgres:
+    image: "ng-postgres:9.6-alpine"
+    container_name: ng-postgres
+    volumes:
+     - ng-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=ng
+      - POSTGRES_USER=ng
+      - POSTGRES_USER=ng
+
+  ng-server:
+    build: ./ng-server
+    container_name: ng-server
+    ports:
+      - 3333:3333
+    links:
+      - ng-postgres]
+    
+  ng-web:
+    build: ./ng-web
+    container_name: ng_web
+    ports:
+      - 3000:3000
+    links:
+      - ng-server
+
+volumes:
+  ng-data:

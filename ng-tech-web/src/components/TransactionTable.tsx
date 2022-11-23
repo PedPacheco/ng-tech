@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
-import { FunnelSimple, X } from "phosphor-react";
+import { FunnelSimple } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { filterTheTransactions } from "~/utils/FilterTheTransactions";
 import { ModalDate } from "./ModalDate";

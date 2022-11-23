@@ -9,13 +9,13 @@ import { FilterTransactionsModule } from '../module/FilterTransactionsModule';
 import { GetUserTransfersModule } from '../module/GetUserTransfersModule';
 import { HandleTransferModule } from '../module/HandleTransferModule';
 import { LoginUsuarioModule } from '../module/LoginUsuarioModule';
-import { ObterSaldoUsuarioModule } from '../module/ObterSaldoUsuarioModule';
+import { GetUserBalanceModule } from '../module/GetUserBalanceModule';
 
 export const routes = Router();
 
 routes.post("/cadastrar", validate(schemas.user), expressAdapter(RegisterUserModule))
 routes.post("/login", validate(schemas.user), expressAdapter(LoginUsuarioModule))
-routes.get("/saldo/:id", verifyJwt, expressAdapter(ObterSaldoUsuarioModule))
+routes.get("/saldo/:id", verifyJwt, expressAdapter(GetUserBalanceModule))
 routes.put("/transferencia", verifyJwt, expressAdapter(HandleTransferModule))
 routes.get("/transferencia/:id", expressAdapter(GetUserTransfersModule))
 routes.get("/filtro-transferencia/:id/", verifyJwt, expressAdapter(FilterTransactionsModule))

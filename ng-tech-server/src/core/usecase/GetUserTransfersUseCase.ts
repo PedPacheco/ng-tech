@@ -5,8 +5,8 @@ export class GetUserTransfersUseCase {
   public constructor(private readonly boundary: GetUserTransfersBoundary) {
     this.boundary = boundary;
   }
-  execute({ id }: idUserRequest) {
-    const response = this.boundary.execute({ id });
+  execute(id: idUserRequest) {
+    const response = this.boundary.execute(id);
 
     return response;
   }

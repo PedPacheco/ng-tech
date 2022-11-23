@@ -3,7 +3,7 @@ import idUserRequest from "../../entrypoint/request/IdUserRequest";
 interface Transactions {
   debitedUsername: string | undefined
   creditedUsername: string | undefined;
-  value: any;
+  value: number;
   createdAt: any;
 }
 

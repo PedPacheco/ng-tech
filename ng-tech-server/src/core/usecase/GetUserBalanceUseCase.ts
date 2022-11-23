@@ -1,8 +1,8 @@
 import idUserRequest from "../../entrypoint/request/IdUserRequest";
-import ObterSaldoUsuarioBoundary from "../boundary/ObterSaldoUsuarioBoundary";
+import GetUserBalanceBoundary from "../boundary/GetUserBalanceBoundary";
 
-export class ObterSaldoUsuarioUseCase {
-  public constructor(private readonly boundary: ObterSaldoUsuarioBoundary) {
+export class GetUserBalanceUseCase {
+  public constructor(private readonly boundary: GetUserBalanceBoundary) {
     this.boundary = boundary;
   }
   execute(id: idUserRequest) {

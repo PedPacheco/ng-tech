@@ -16,7 +16,6 @@ export class LoginUsuarioGateway implements LoginUsuarioBoundary {
     }
 
     const checkPassword = bcrypt.compareSync(password, user?.password);
-
     if (!checkPassword) throw new Error("Senha incorreta");
 
     const token = jwt.sign(
@@ -25,7 +24,7 @@ export class LoginUsuarioGateway implements LoginUsuarioBoundary {
         userId: user.id,
       },
       "token",
-      { expiresIn: "24h" }
+      { expiresIn: 60 * 60 * 24 }
     );
 
     return { user, token };

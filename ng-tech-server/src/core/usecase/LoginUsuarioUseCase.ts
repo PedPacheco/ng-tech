@@ -6,7 +6,7 @@ export class LoginUsuarioUseCase {
     this.boundary = boundary;
   }
   execute(body: UsuarioRequest) {
-    const response = this.boundary.execute(body);
+    const response = this.boundary.execute(body)
 
     return response;
   }
