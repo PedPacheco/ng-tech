@@ -10,7 +10,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
   }: HandleTransferRequest) {
     const sender = await prisma.users.findUnique({
       where: {
-        username: fromUsername,
+        username: fromUsername.toLowerCase(),
       },
     });
 
@@ -42,7 +42,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
         },
       })
   
-      if (accountSender.balance < 0) {
+      if (Number(accountSender.balance) < 0) {
         throw new Error(`${fromUsername} doesn't have enough to send ${amount}`)
       }
       
@@ -68,12 +68,11 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       data: {
         creditedAccountId: recipient.accountId,
         debitedAccountId: sender.accountId,
-        value: amount,
+        value: Number(amount),
         createdAt: new Date()
       }
     })
 
-    console.log(addTransfer, transfer)
     return addTransfer
   }
 }

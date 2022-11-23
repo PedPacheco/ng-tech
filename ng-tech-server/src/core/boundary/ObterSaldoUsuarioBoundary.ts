@@ -2,7 +2,7 @@ import idUserRequest from "../../entrypoint/request/IdUserRequest";
 
 interface Account {
     id: string
-    balance: number
+    balance: any
 }
 
 export default interface GetUserBalanceBoundary {

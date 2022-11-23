@@ -7,11 +7,11 @@ export class RegisterUserGateway implements RegisterUserBoundary {
   public async execute({ password, username }: UsuarioRequest) {
     const user = await prisma.users.create({
       data: {
-        username,
+        username: username.toLowerCase(),
         password,
         account: {
           create: {
-            balance: 100,
+            balance: 100.00,
           },
         },
       },

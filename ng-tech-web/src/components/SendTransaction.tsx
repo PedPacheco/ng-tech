@@ -1,12 +1,16 @@
 import { useState } from "react";
 
 interface TransactionProps {
-  handleTransfer: (username: string, amount: number | undefined) => void;
+  handleTransfer: (username: string, amount: string) => void;
+  disabled: boolean;
 }
 
-export function SendTransaction({ handleTransfer }: TransactionProps) {
+export function SendTransaction({
+  handleTransfer,
+  disabled,
+}: TransactionProps) {
   const [username, setUsername] = useState<string>("");
-  const [amount, setAmount] = useState<number>();
+  const [amount, setAmount] = useState<string>("");
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-between">
@@ -38,8 +42,7 @@ export function SendTransaction({ handleTransfer }: TransactionProps) {
               </span>
               <input
                 type="number"
-                value={amount}
-                onChange={(event) => setAmount(Number(event.target.value))}
+                onChange={(event) => setAmount(event.target.value)}
                 className="w-56 lg:w-60 h-8 lg:h-10 mt-3 rounded-lg border-2 pl-2 border-zinc-700"
               />
             </div>
@@ -47,6 +50,7 @@ export function SendTransaction({ handleTransfer }: TransactionProps) {
 
           <button
             onClick={() => handleTransfer(username, amount)}
+            disabled={disabled}
             className="w-64 lg:w-[480px] h-8 lg:h-10 text-zinc-900 text-lg bg-white border-2 border-zinc-500 hover:text-zinc-600 transition-colors flex items-center justify-center py-1 mt-4 mb-10 rounded-xl font-medium"
           >
             Transferir

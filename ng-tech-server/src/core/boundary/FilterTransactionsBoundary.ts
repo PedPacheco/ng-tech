@@ -1,7 +1,8 @@
 import FilterTransactionsRequest from "../../entrypoint/request/FilterTransactionRequest";
 
 interface Transactions {
-  username: string | undefined;
+  debitedUsername: string | undefined
+  creditedUsername: string | undefined;
   value: any;
   createdAt: any;
 }

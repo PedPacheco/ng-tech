@@ -11,30 +11,47 @@ export class FilterTransactionsGateway implements FilterTransactionsBoundary {
         where: {
           debitedAccountId: id,
         },
+        orderBy: {
+          id: "desc",
+        },
       });
 
       const users = transactions.map(async (item: any) => {
         if (item.debitedAccountId !== id) {
-          const user = await prisma.users.findUnique({
+          const debitedUser = await prisma.users.findUnique({
             where: {
               accountId: item.debitedAccountId,
             },
           });
+          const creditedUser = await prisma.users.findUnique({
+            where: {
+              accountId: id,
+            },
+          });
           return {
-            username: user?.username,
+            id: item.id,
+            debitedUsername: debitedUser?.username,
+            creditedUsername: creditedUser?.username,
             value: item.value,
             createdAt: item.createdAt,
           };
         }
 
         if (item.creditedAccountId !== id) {
-          const user = await prisma.users.findUnique({
+          const creditedUser = await prisma.users.findUnique({
             where: {
               accountId: item.creditedAccountId,
             },
           });
+          const debitedUser = await prisma.users.findUnique({
+            where: {
+              accountId: id,
+            },
+          });
           return {
-            username: user?.username,
+            id: item.id,
+            debitedUsername: debitedUser?.username,
+            creditedUsername: creditedUser?.username,
             value: item.value,
             createdAt: item.createdAt,
           };
@@ -51,30 +68,47 @@ export class FilterTransactionsGateway implements FilterTransactionsBoundary {
         where: {
           creditedAccountId: id,
         },
+        orderBy: {
+          id: "desc",
+        },
       });
 
       const users = transactions.map(async (item: any) => {
         if (item.debitedAccountId !== id) {
-          const user = await prisma.users.findUnique({
+          const debitedUser = await prisma.users.findUnique({
             where: {
               accountId: item.debitedAccountId,
             },
           });
+          const creditedUser = await prisma.users.findUnique({
+            where: {
+              accountId: id,
+            },
+          });
           return {
-            username: user?.username,
+            id: item.id,
+            debitedUsername: debitedUser?.username,
+            creditedUsername: creditedUser?.username,
             value: item.value,
             createdAt: item.createdAt,
           };
         }
 
         if (item.creditedAccountId !== id) {
-          const user = await prisma.users.findUnique({
+          const creditedUser = await prisma.users.findUnique({
             where: {
               accountId: item.creditedAccountId,
             },
           });
+          const debitedUser = await prisma.users.findUnique({
+            where: {
+              accountId: id,
+            },
+          });
           return {
-            username: user?.username,
+            id: item.id,
+            debitedUsername: debitedUser?.username,
+            creditedUsername: creditedUser?.username,
             value: item.value,
             createdAt: item.createdAt,
           };
@@ -91,30 +125,47 @@ export class FilterTransactionsGateway implements FilterTransactionsBoundary {
         where: {
           createdAt: filterDate,
         },
+        orderBy: {
+          id: "desc",
+        },
       });
 
       const users = transactions.map(async (item: any) => {
         if (item.debitedAccountId !== id) {
-          const user = await prisma.users.findUnique({
+          const debitedUser = await prisma.users.findUnique({
             where: {
               accountId: item.debitedAccountId,
             },
           });
+          const creditedUser = await prisma.users.findUnique({
+            where: {
+              accountId: id,
+            },
+          });
           return {
-            username: user?.username,
+            id: item.id,
+            debitedUsername: debitedUser?.username,
+            creditedUsername: creditedUser?.username,
             value: item.value,
             createdAt: item.createdAt,
           };
         }
 
         if (item.creditedAccountId !== id) {
-          const user = await prisma.users.findUnique({
+          const creditedUser = await prisma.users.findUnique({
             where: {
               accountId: item.creditedAccountId,
             },
           });
+          const debitedUser = await prisma.users.findUnique({
+            where: {
+              accountId: id,
+            },
+          });
           return {
-            username: user?.username,
+            id: item.id,
+            debitedUsername: debitedUser?.username,
+            creditedUsername: creditedUser?.username,
             value: item.value,
             createdAt: item.createdAt,
           };

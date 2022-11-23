@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Router from "next/router";
 import { setCookie } from "nookies";
+import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "~/components/Input";
 
@@ -14,8 +15,11 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<FieldValues>();
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const handleLogin: SubmitHandler<FieldValues> = async (data) => {
+    setDisabled(true);
+
     const response = await axios
       .post("http://localhost:3333/login", {
         username: data.username,
@@ -89,6 +93,7 @@ export default function Login() {
           <div className="flex flex-col items-center justify-center ">
             <button
               type="submit"
+              disabled={disabled}
               className="w-72 h-9 bg-transparent text-zinc-900 border-zinc-900 hover:border-zinc-600 hover:text-zinc-600 transition-colors border-2 mt-4 mb-10 rounded-xl font-medium cursor-pointer"
             >
               entrar

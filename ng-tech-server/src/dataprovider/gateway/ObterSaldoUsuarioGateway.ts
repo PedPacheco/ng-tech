@@ -9,7 +9,8 @@ export class ObterSaldoUsuarioGateway implements ObterSaldoUsuarioBoundary {
         id,
       },
     });
+    
+    return balance
 
-    return balance;
   }
 }

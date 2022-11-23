@@ -9,37 +9,61 @@ export class GetUserTransfersGateway implements GetUserTransfersBoundary {
         OR: [
           {
             debitedAccountId: id,
-
           },
           {
             creditedAccountId: id,
           },
         ],
       },
+      orderBy: {
+        id: "desc",
+      },
     });
 
     const users = transactions.map(async (item: any) => {
       if (item.debitedAccountId !== id) {
-        const user = await prisma.users.findUnique({
+        const debitedUser = await prisma.users.findUnique({
           where: {
             accountId: item.debitedAccountId,
           },
         });
-        return {username: user?.username, value: item.value, createdAt: item.createdAt}
+        const creditedUser = await prisma.users.findUnique({
+          where: {
+            accountId: id,
+          },
+        });
+        return {
+          id: item.id,
+          debitedUsername: debitedUser?.username,
+          creditedUsername: creditedUser?.username,
+          value: item.value,
+          createdAt: item.createdAt,
+        };
       }
 
       if (item.creditedAccountId !== id) {
-        const user = await prisma.users.findUnique({
+        const creditedUser = await prisma.users.findUnique({
           where: {
             accountId: item.creditedAccountId,
           },
         });
-        return {username: user?.username, value: item.value, createdAt: item.createdAt}
+        const debitedUser = await prisma.users.findUnique({
+          where: {
+            accountId: id,
+          },
+        });
+        return {
+          id: item.id,
+          debitedUsername: debitedUser?.username,
+          creditedUsername: creditedUser?.username,
+          value: item.value,
+          createdAt: item.createdAt,
+        };
       }
     });
 
     const userTransfers = await Promise.all(users);
 
-    return userTransfers
+    return userTransfers;
   }
 }

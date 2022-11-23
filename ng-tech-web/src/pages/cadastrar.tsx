@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Router from "next/router";
 import nookies from "nookies";
+import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "~/components/Input";
 
@@ -15,8 +16,10 @@ export default function Login() {
     handleSubmit,
     formState: { errors },
   } = useForm<FieldValues>();
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const handleSignIn: SubmitHandler<FieldValues> = async (data) => {
+    setDisabled(true);
     const response = await axios
       .post("http://localhost:3333/cadastrar", {
         username: data.username,
@@ -30,9 +33,9 @@ export default function Login() {
       maxAge: 30 * 24 * 60 * 60,
     });
 
-    const user = JSON.parse(response.user);
+    const user = JSON.stringify(response.user);
 
-    nookies.set(undefined, "user", user, {
+    nookies.set(undefined, "userCookies", user, {
       maxAge: 30 * 24 * 60 * 60,
     });
 
@@ -44,7 +47,7 @@ export default function Login() {
       <div className="bg-black w-full h-24 flex items-center shadow-lg justify-center">
         <Image src="/logo.png" alt="Logo NG.CASH" width={160} height={30} />
       </div>
-      <div className="flex flex-col items-center justify-center h-[100vh] lg:h-[80vh]">
+      <div className="flex flex-col items-center justify-center h-[100vh] lg:h-[100vh]">
         <form
           className="w-full h-full bg-white lg:w-[600px] lg:h-[586px] lg:rounded-lg shadow-lg flex flex-col justify-center items-center"
           onSubmit={handleSubmit(handleSignIn)}
@@ -128,7 +131,8 @@ export default function Login() {
           <div className="flex flex-col items-center justify-center ">
             <button
               type="submit"
-              className="w-72 h-9 bg-transparent text-zinc-900 rounded-xl mb-10 mt-4 border-zinc-900 hover:border-zinc-600 hover:text-zinc-600 transition-colors border-2 font-medium cursor-pointer"
+              disabled={disabled}
+              className="w-72 h-9 bg-transparent text-zinc-900 rounded-xl mb-10 mt-4 border-zinc-900 hover:border-zinc-600 hover:text-zinc-600 transition-colors border-2 font-medium disabled:opacity-5"
             >
               Cadastre-se
             </button>

@@ -1,13 +1,65 @@
+import axios from "axios";
+import { useRouter } from "next/router";
+import { parseCookies } from "nookies";
 import { FunnelSimple, X } from "phosphor-react";
-import { ChangeEvent, useState } from "react";
-import InputMask from "react-input-mask";
+import { useEffect, useState } from "react";
+import { filterTheTransactions } from "~/utils/FilterTheTransactions";
+import { ModalDate } from "./ModalDate";
 import { Transaction } from "./Transaction";
 
+interface Transaction {
+  id: string;
+  debitedUsername: string;
+  creditedUsername: string;
+  value: number;
+  createdAt: string;
+}
+
 export function TransactionTable() {
+  const { token, userCookies } = parseCookies();
   const [openFilter, setOpenFilter] = useState<boolean>(false);
   const [openDateModal, setOpenDateModal] = useState<boolean>(false);
-  const [date, setDate] = useState<string>();
+  const [transactionsList, setTransactionsList] = useState<Transaction[]>([]);
+  const [day, setDay] = useState<string>("");
+  const [month, setMonth] = useState<string>("");
+  const [year, setYear] = useState<string>("");
+  const router = useRouter();
 
+  useEffect(() => {
+    if (token === "" || token === undefined) {
+      router.push("/login");
+    }
+
+    async function getTransactions() {
+      if (userCookies !== undefined) {
+        const user = JSON.parse(userCookies);
+        const headers = { authorization: token };
+        await axios
+          .get(`http://localhost:3333/transferencia/${user?.accountId}`, {
+            headers,
+          })
+          .then((response) => {
+            const data = response.data;
+            setTransactionsList(data);
+          });
+      }
+    }
+    getTransactions();
+  }, [router, token, userCookies]);
+
+  async function catchFilteredTransactions(filter: string) {
+    if (token === undefined || userCookies === undefined) {
+      return;
+    }
+
+    const date = `${year}/${month}/${day}`;
+
+    const data = await filterTheTransactions(token, userCookies, filter, date);
+    setTransactionsList(data);
+    setOpenDateModal(false);
+  }
+
+  console.log(transactionsList);
   return (
     <section className="p-4 pt-10 lg:p-10 lg:mt-24 flex items-center justify-center">
       <div className="w-full flex flex-col justify-center items-center border-[1px] border-black rounded lg:min-w-[900px] lg:w-[50%]">
@@ -26,14 +78,26 @@ export function TransactionTable() {
             <div>
               <p
                 className="p-4 font-bold text-lg text-white hover:bg-zinc-700 transition-colors"
+                onClick={() => catchFilteredTransactions("todas")}
+              >
+                TODAS
+              </p>
+              <p
+                className="p-4 font-bold text-lg text-white hover:bg-zinc-700 transition-colors"
                 onClick={() => setOpenDateModal(true)}
               >
                 DATA
               </p>
-              <p className="p-4 font-bold text-lg text-white hover:bg-zinc-700 transition-colors">
+              <p
+                className="p-4 font-bold text-lg text-white hover:bg-zinc-700 transition-colors"
+                onClick={() => catchFilteredTransactions("transacoes-cash-in")}
+              >
                 CASH-IN
               </p>
-              <p className="p-4 font-bold text-lg text-white hover:bg-zinc-700 transition-colors">
+              <p
+                className="p-4 font-bold text-lg text-white hover:bg-zinc-700 transition-colors"
+                onClick={() => catchFilteredTransactions("transacoes-cash-out")}
+              >
                 CASH-OUT
               </p>
             </div>
@@ -41,41 +105,29 @@ export function TransactionTable() {
         </div>
         <div className="flex justify-between items-center px-6 w-full">
           <ul className="w-full my-4">
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
-            <Transaction />
+            {transactionsList.map((transaction) => (
+              <Transaction
+                createdAt={transaction.createdAt}
+                debitedUsername={transaction.debitedUsername}
+                creditedUsername={transaction.creditedUsername}
+                value={transaction.value}
+                key={transaction.id}
+              />
+            ))}
           </ul>
         </div>
-      </div>
 
-      <div
-        className={`${
-          openDateModal ? "block" : "hidden"
-        } fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-white shadow-xl w-52 h-36 rounded border-2`}
-      >
-        <X
-          size={24}
-          weight="bold"
-          className="mt-2 ml-2 cursor-pointer"
-          onClick={() => setOpenDateModal(false)}
+        <ModalDate
+          date={day}
+          catchFilteredTransactions={catchFilteredTransactions}
+          openDateModal={openDateModal}
+          setDate={setDay}
+          setYear={setYear}
+          setMonth={setMonth}
+          month={month}
+          year={year}
+          setOpenDateModal={setOpenDateModal}
         />
-        <div className="flex flex-col items-center py-4">
-          <InputMask
-            mask="99/99/9999"
-            className="border-2 border-zinc-300 text-center"
-            placeholder="DD/MM/YYYY"
-            value={date}
-            onChange={(event: ChangeEvent<HTMLInputElement>) =>
-              setDate(event.target.value)
-            }
-          />
-          <button className="items-end w-[80%] bg-black text-white rounded mt-4 hover:bg-zinc-900 transition-colors py-1">
-            Filtrar por data
-          </button>
-        </div>
       </div>
     </section>
   );

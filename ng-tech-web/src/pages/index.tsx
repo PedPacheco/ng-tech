@@ -2,12 +2,12 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Header } from "~/components/Header";
 import { SendTransaction } from "~/components/SendTransaction";
 import { TransactionTable } from "~/components/TransactionTable";
 
-interface User {
+export interface User {
   id: string;
   username: string;
   password: string;
@@ -17,22 +17,23 @@ interface User {
 export default function Home() {
   const { token, userCookies } = parseCookies();
   const [user, setUser] = useState<User>();
-  const [openModal, setOpenModal] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (token === "") {
-  //     router.push("/login");
-  //   }
+  useEffect(() => {
+    if (token === "" || token === undefined) {
+      router.push("/login");
+    }
 
-  //   if (userCookies !== undefined) {
-  //     const objectUser = JSON.parse(userCookies);
-  //     setUser(objectUser);
-  //   }
-  // }, [router, token, userCookies]);
+    if (userCookies !== undefined) {
+      const objectUser = JSON.parse(userCookies);
+      setUser(objectUser);
+    }
+  }, [router, token, userCookies]);
 
-  async function handleTransfer(username: string, amount: number | undefined) {
+  async function handleTransfer(username: string, amount: string) {
+    setDisabled(true);
     if (!username || !amount) {
       return;
     }
@@ -40,26 +41,27 @@ export default function Home() {
     const data = {
       fromUsername: user?.username,
       toUsername: username,
-      amount,
+      amount: Number(amount),
     };
 
     const headers = { authorization: token };
-    const response = await axios
+    await axios
       .put("http://localhost:3333/transferencia", data, { headers })
       .then((response) => {
-        setOpenModal(true);
+        setDisabled(false);
         return response.data;
       })
       .catch((error) => {
-        setOpenModal(true);
         console.log(error);
       });
+
+    router.reload();
   }
 
   return (
     <div>
       <Header username={user?.username} />
-      <SendTransaction handleTransfer={handleTransfer} />
+      <SendTransaction handleTransfer={handleTransfer} disabled={disabled} />
       <TransactionTable />
     </div>
   );
