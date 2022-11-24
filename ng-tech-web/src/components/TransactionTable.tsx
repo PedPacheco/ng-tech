@@ -1,3 +1,4 @@
+/* eslint-disable import/no-duplicates */
 import axios from "axios";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
@@ -52,7 +53,7 @@ export function TransactionTable() {
       return;
     }
 
-    const date = `${year}/${month}/${day}`;
+    const date = `${year}-${month}-${day}`;
 
     const data = await filterTheTransactions(token, userCookies, filter, date);
     setTransactionsList(data);

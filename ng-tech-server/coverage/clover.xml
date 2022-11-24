@@ -1,10 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669235162447" clover="3.2.0">
-  <project timestamp="1669235162448" name="All files">
-    <metrics statements="373" coveredstatements="319" conditionals="31" coveredconditionals="23" methods="20" coveredmethods="20" elements="424" coveredelements="362" complexity="0" loc="373" ncloc="373" packages="4" files="16" classes="16"/>
+<coverage generated="1669301955734" clover="3.2.0">
+  <project timestamp="1669301955734" name="All files">
+    <metrics statements="688" coveredstatements="609" conditionals="64" coveredconditionals="48" methods="32" coveredmethods="31" elements="784" coveredelements="688" complexity="0" loc="688" ncloc="688" packages="4" files="25" classes="25"/>
     <package name="src.core.usecase">
-      <metrics statements="52" coveredstatements="52" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
-      <file name="GetUserBalanceUseCase.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\core\usecase\GetUserBalanceUseCase.ts">
+      <metrics statements="100" coveredstatements="100" conditionals="15" coveredconditionals="15" methods="12" coveredmethods="12"/>
+      <file name="FilterTransactionsUseCase.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\core\usecase\FilterTransactionsUseCase.ts">
+        <metrics statements="32" coveredstatements="32" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="22" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+      </file>
+      <file name="GetUserBalanceUseCase.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\core\usecase\GetUserBalanceUseCase.ts">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -20,7 +55,7 @@
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>
-      <file name="GetUserTransfersUseCase.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\core\usecase\GetUserTransfersUseCase.ts">
+      <file name="GetUserTransfersUseCase.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\core\usecase\GetUserTransfersUseCase.ts">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -36,7 +71,7 @@
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>
-      <file name="HandleTransferUseCase.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\core\usecase\HandleTransferUseCase.ts">
+      <file name="HandleTransferUseCase.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\core\usecase\HandleTransferUseCase.ts">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -52,7 +87,7 @@
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
       </file>
-      <file name="LoginUsuarioUseCase.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\core\usecase\LoginUsuarioUseCase.ts">
+      <file name="LoginUsuarioUseCase.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\core\usecase\LoginUsuarioUseCase.ts">
         <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -67,12 +102,189 @@
         <line num="11" count="1" type="stmt"/>
         <line num="12" count="1" type="stmt"/>
         <line num="13" count="1" type="stmt"/>
+      </file>
+      <file name="RegisterUserUseCase.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\core\usecase\RegisterUserUseCase.ts">
+        <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.dataprovider.gateway">
-      <metrics statements="195" coveredstatements="141" conditionals="15" coveredconditionals="7" methods="4" coveredmethods="4"/>
-      <file name="GetUserBalanceGateway.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\dataprovider\gateway\GetUserBalanceGateway.ts">
-        <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="376" coveredstatements="297" conditionals="37" coveredconditionals="21" methods="8" coveredmethods="7"/>
+      <file name="FilterTransactionsByCashInGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\FilterTransactionsByCashInGateway.ts">
+        <metrics statements="42" coveredstatements="42" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+      <file name="FilterTransactionsByCashOutGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\FilterTransactionsByCashOutGateway.ts">
+        <metrics statements="42" coveredstatements="42" conditionals="6" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="2" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="24" count="2" type="stmt"/>
+        <line num="25" count="2" type="stmt"/>
+        <line num="26" count="2" type="stmt"/>
+        <line num="27" count="2" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="29" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="31" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="32" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="33" count="2" type="stmt"/>
+        <line num="34" count="2" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="36" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+      </file>
+      <file name="FilterTransactionsByDateGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\FilterTransactionsByDateGateway.ts">
+        <metrics statements="65" coveredstatements="65" conditionals="10" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="14" count="2" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="18" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="6" type="cond" truecount="1" falsecount="0"/>
+        <line num="20" count="4" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="22" count="4" type="stmt"/>
+        <line num="23" count="4" type="stmt"/>
+        <line num="24" count="4" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="27" count="4" type="stmt"/>
+        <line num="28" count="4" type="stmt"/>
+        <line num="29" count="4" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="31" count="4" type="stmt"/>
+        <line num="32" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="33" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="34" count="4" type="stmt"/>
+        <line num="35" count="4" type="stmt"/>
+        <line num="36" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="38" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="44" count="2" type="stmt"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="51" count="2" type="stmt"/>
+        <line num="52" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="53" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="57" count="2" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="63" count="2" type="stmt"/>
+        <line num="64" count="3" type="stmt"/>
+        <line num="65" count="1" type="stmt"/>
+      </file>
+      <file name="GetUserBalanceGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\GetUserBalanceGateway.ts">
+        <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -88,9 +300,8 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
       </file>
-      <file name="GetUserTransfersGateway.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\dataprovider\gateway\GetUserTransfersGateway.ts">
+      <file name="GetUserTransfersGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\GetUserTransfersGateway.ts">
         <metrics statements="69" coveredstatements="69" conditionals="8" coveredconditionals="4" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -162,8 +373,8 @@
         <line num="68" count="2" type="stmt"/>
         <line num="69" count="1" type="stmt"/>
       </file>
-      <file name="HandleTransferGateway.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\dataprovider\gateway\HandleTransferGateway.ts">
-        <metrics statements="78" coveredstatements="26" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <file name="HandleTransferGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\HandleTransferGateway.ts">
+        <metrics statements="80" coveredstatements="26" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -241,9 +452,11 @@
         <line num="75" count="0" type="stmt"/>
         <line num="76" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
-        <line num="78" count="1" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="80" count="1" type="stmt"/>
       </file>
-      <file name="LoginUsuarioGateway.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\dataprovider\gateway\LoginUsuarioGateway.ts">
+      <file name="LoginUsuarioGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\LoginUsuarioGateway.ts">
         <metrics statements="32" coveredstatements="30" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -278,10 +491,66 @@
         <line num="31" count="1" type="stmt"/>
         <line num="32" count="1" type="stmt"/>
       </file>
+      <file name="RegisterUserGateway.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\dataprovider\gateway\RegisterUserGateway.ts">
+        <metrics statements="31" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
     </package>
     <package name="src.entrypoint.controller">
-      <metrics statements="65" coveredstatements="65" conditionals="8" coveredconditionals="8" methods="8" coveredmethods="8"/>
-      <file name="GetUserBalanceController.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\entrypoint\controller\GetUserBalanceController.ts">
+      <metrics statements="101" coveredstatements="101" conditionals="12" coveredconditionals="12" methods="12" coveredmethods="12"/>
+      <file name="FilterTransactionsController.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\entrypoint\controller\FilterTransactionsController.ts">
+        <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+      </file>
+      <file name="GetUserBalanceController.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\entrypoint\controller\GetUserBalanceController.ts">
         <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -298,7 +567,7 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
       </file>
-      <file name="GetUserTransfersController.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\entrypoint\controller\GetUserTransfersController.ts">
+      <file name="GetUserTransfersController.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\entrypoint\controller\GetUserTransfersController.ts">
         <metrics statements="16" coveredstatements="16" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -317,7 +586,7 @@
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="1" type="stmt"/>
       </file>
-      <file name="HandleTransferController.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\entrypoint\controller\HandleTransferController.ts">
+      <file name="HandleTransferController.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\entrypoint\controller\HandleTransferController.ts">
         <metrics statements="18" coveredstatements="18" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -338,7 +607,27 @@
         <line num="17" count="1" type="stmt"/>
         <line num="18" count="1" type="stmt"/>
       </file>
-      <file name="LoginUsuarioController.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\src\entrypoint\controller\LoginUsuarioController.ts">
+      <file name="LoginUsuarioController.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\entrypoint\controller\LoginUsuarioController.ts">
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+      <file name="RegisterUserController.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\src\entrypoint\controller\RegisterUserController.ts">
         <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -360,8 +649,61 @@
       </file>
     </package>
     <package name="tests.mocks">
-      <metrics statements="61" coveredstatements="61" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-      <file name="GetUserBalanceMock.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\tests\mocks\GetUserBalanceMock.ts">
+      <metrics statements="111" coveredstatements="111" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="FilterTransactionsMock.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\tests\mocks\FilterTransactionsMock.ts">
+        <metrics statements="50" coveredstatements="50" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="41" count="1" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+      </file>
+      <file name="GetUserBalanceMock.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\tests\mocks\GetUserBalanceMock.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -370,7 +712,7 @@
         <line num="5" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
       </file>
-      <file name="GetUserTransfersMock.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\tests\mocks\GetUserTransfersMock.ts">
+      <file name="GetUserTransfersMock.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\tests\mocks\GetUserTransfersMock.ts">
         <metrics statements="29" coveredstatements="29" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -402,7 +744,7 @@
         <line num="28" count="1" type="stmt"/>
         <line num="29" count="1" type="stmt"/>
       </file>
-      <file name="HandleTransferMock.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\tests\mocks\HandleTransferMock.ts">
+      <file name="HandleTransferMock.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\tests\mocks\HandleTransferMock.ts">
         <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
@@ -420,7 +762,7 @@
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
       </file>
-      <file name="LoginUsuarioMock.ts" path="C:\Users\crism\OneDrive\Documentos\aulas\projetos\ng-tech\ng-tech-server\tests\mocks\LoginUsuarioMock.ts">
+      <file name="LoginUsuarioMock.ts" path="C:\Users\pedro.hspacheco\Documents\ng-tech\ng-tech-server\tests\mocks\LoginUsuarioMock.ts">
         <metrics statements="11" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>

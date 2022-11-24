@@ -9,8 +9,7 @@ export class GetUserBalanceGateway implements GetUserBalanceBoundary {
         id,
       },
     });
-    
-    return balance
 
+    return balance;
   }
 }

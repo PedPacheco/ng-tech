@@ -16,7 +16,7 @@ export class GetUserTransfersGateway implements GetUserTransfersBoundary {
         ],
       },
       orderBy: {
-        id: "desc",
+        createdAt: "desc",
       },
     });
 

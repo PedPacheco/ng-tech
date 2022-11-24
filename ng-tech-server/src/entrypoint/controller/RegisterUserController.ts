@@ -1,5 +1,5 @@
-import { RegisterUserUseCase } from '../../core/usecase/RegisterUserUseCase';
-import UsuarioRequest from '../request/UsuarioRequest';
+import { RegisterUserUseCase } from "../../core/usecase/RegisterUserUseCase";
+import UsuarioRequest from "../request/UsuarioRequest";
 
 export class RegisterUserController {
   public constructor(private readonly useCase: RegisterUserUseCase) {

@@ -20,8 +20,8 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       },
     });
 
-    if(!sender) {
-      throw new Error("Usuario não existe")
+    if (!sender) {
+      throw new Error("Usuario não existe");
     }
 
     if (!recipient) {
@@ -30,7 +30,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       );
     }
 
-    const transfer =  await prisma.$transaction(async (tx) => {
+    const transfer = await prisma.$transaction(async (tx: any) => {
       const accountSender = await tx.account.update({
         data: {
           balance: {
@@ -40,12 +40,14 @@ export class HandleTransferGateway implements HandleTransferBoundary {
         where: {
           id: sender.accountId,
         },
-      })
-  
+      });
+
       if (Number(accountSender.balance) < 0) {
-        throw new Error(`${fromUsername} doesn't have enough to send ${amount}`)
+        throw new Error(
+          `${fromUsername} doesn't have enough to send ${amount}`
+        );
       }
-      
+
       const accountRecipient = tx.account.update({
         data: {
           balance: {
@@ -56,12 +58,12 @@ export class HandleTransferGateway implements HandleTransferBoundary {
           id: recipient.accountId,
         },
       });
-  
-      return accountRecipient
-    })
 
-    if(!transfer) {
-      throw new Error("Transferencia não realizada")
+      return accountRecipient;
+    });
+
+    if (!transfer) {
+      throw new Error("Transferencia não realizada");
     }
 
     const addTransfer = await prisma.transactions.create({
@@ -69,10 +71,10 @@ export class HandleTransferGateway implements HandleTransferBoundary {
         creditedAccountId: recipient.accountId,
         debitedAccountId: sender.accountId,
         value: Number(amount),
-        createdAt: new Date()
-      }
-    })
+        createdAt: new Date(),
+      },
+    });
 
-    return addTransfer
+    return addTransfer;
   }
 }

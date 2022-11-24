@@ -1,7 +1,8 @@
+/* eslint-disable import/no-duplicates */
 import { parseCookies } from "nookies";
 import { ArrowRight } from "phosphor-react";
 import { useEffect, useState } from "react";
-import { User } from "~/pages";
+import { User } from "~/pages/home";
 
 interface TransactionsProps {
   debitedUsername: string;
@@ -29,7 +30,7 @@ export function Transaction({
     }
     setMonth(new Date(createdAt).getMonth() + 1);
     setDay(new Date(createdAt).getDate() + 1);
-    setYear(new Date(createdAt).getFullYear() + 1);
+    setYear(new Date(createdAt).getFullYear());
   }, [createdAt, userCookies]);
 
   return (

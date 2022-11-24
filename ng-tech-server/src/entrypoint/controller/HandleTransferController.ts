@@ -1,5 +1,5 @@
-import { HandleTransferUseCase } from '../../core/usecase/HandleTransferUseCase';
-import HandleTransferRequest from '../request/HandleTransferRequest';
+import { HandleTransferUseCase } from "../../core/usecase/HandleTransferUseCase";
+import HandleTransferRequest from "../request/HandleTransferRequest";
 
 export class HandleTransferController {
   public constructor(private readonly useCase: HandleTransferUseCase) {
@@ -12,7 +12,7 @@ export class HandleTransferController {
     return this.useCase.execute({
       amount,
       fromUsername,
-      toUsername
+      toUsername,
     });
   }
 }

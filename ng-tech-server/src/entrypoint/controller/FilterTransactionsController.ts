@@ -1,4 +1,4 @@
-import { FilterTransactionsUseCase } from "../../core/usecase/FilterTrasanctionsUseCase";
+import { FilterTransactionsUseCase } from "../../core/usecase/FilterTransactionsUseCase";
 import idUserRequest from "../request/IdUserRequest";
 
 export class FilterTransactionsController {
@@ -13,7 +13,7 @@ export class FilterTransactionsController {
     return this.useCase.execute({
       id,
       filter,
-      date
+      date,
     });
   }
 }

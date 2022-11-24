@@ -1,7 +1,8 @@
 import idUserRequest from "../../entrypoint/request/IdUserRequest";
 
 interface Transactions {
-  debitedUsername: string | undefined
+  id: string;
+  debitedUsername: string | undefined;
   creditedUsername: string | undefined;
   value: number;
   createdAt: any;

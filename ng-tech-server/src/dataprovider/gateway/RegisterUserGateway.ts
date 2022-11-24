@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+import jwt from "jsonwebtoken";
 import RegisterUserBoundary from "../../core/boundary/RegisterUserBoundary";
 import UsuarioRequest from "../../entrypoint/request/UsuarioRequest";
 import prisma from "../client/client";
@@ -11,7 +11,7 @@ export class RegisterUserGateway implements RegisterUserBoundary {
         password,
         account: {
           create: {
-            balance: 100.00,
+            balance: 100.0,
           },
         },
       },

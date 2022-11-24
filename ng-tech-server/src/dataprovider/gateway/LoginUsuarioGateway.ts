@@ -1,8 +1,8 @@
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import LoginUsuarioBoundary from "../../core/boundary/LoginUsuarioBoundary";
 import UsuarioRequest from "../../entrypoint/request/UsuarioRequest";
 import prisma from "../client/client";
-import jwt from "jsonwebtoken";
 
 export class LoginUsuarioGateway implements LoginUsuarioBoundary {
   public async execute({ username, password }: UsuarioRequest) {
@@ -24,7 +24,7 @@ export class LoginUsuarioGateway implements LoginUsuarioBoundary {
         userId: user.id,
       },
       "token",
-      { expiresIn: 60 * 60 * 24 }
+      { expiresIn: 60 * 60 * 24 }
     );
 
     return { user, token };

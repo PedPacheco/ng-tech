@@ -5,16 +5,13 @@ import prisma from "../client/client";
 export class FilterTransactionsByDateGateway
   implements FilterTransactionsBoundary
 {
-  public async execute({ id, filter, date }: FilterTransactions) {
+  public async execute({ id, date }: FilterTransactions) {
     if (date) {
       const filterDate = new Date(date);
 
       const transactions = await prisma.transactions.findMany({
         where: {
           createdAt: filterDate,
-        },
-        orderBy: {
-          id: "desc",
         },
       });
 

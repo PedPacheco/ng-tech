@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">32.5% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>26/78</span>
+                <span class='fraction'>26/80</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">32.5% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/78</span>
+                <span class='fraction'>26/80</span>
             </div>
         
             
@@ -141,7 +141,9 @@
 <a name='L76'></a><a href='#L76'>76</a>
 <a name='L77'></a><a href='#L77'>77</a>
 <a name='L78'></a><a href='#L78'>78</a>
-<a name='L79'></a><a href='#L79'>79</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -166,6 +168,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -241,8 +245,8 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       },
     });
 &nbsp;
-    if(!sender) {
-      throw new Error("Usuario não existe")
+    if (!sender) {
+      throw new Error("Usuario não existe");
     }
 <span class="cstat-no" title="statement not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span>
 <span class="cstat-no" title="statement not covered" >    if (!recipient) {</span>
@@ -251,7 +255,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
 <span class="cstat-no" title="statement not covered" >      );</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    const transfer =  await prisma.$transaction(async (tx) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    const transfer = await prisma.$transaction(async (tx: any) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >      const accountSender = await tx.account.update({</span>
 <span class="cstat-no" title="statement not covered" >        data: {</span>
 <span class="cstat-no" title="statement not covered" >          balance: {</span>
@@ -261,12 +265,14 @@ export class HandleTransferGateway implements HandleTransferBoundary {
 <span class="cstat-no" title="statement not covered" >        where: {</span>
 <span class="cstat-no" title="statement not covered" >          id: sender.accountId,</span>
 <span class="cstat-no" title="statement not covered" >        },</span>
-<span class="cstat-no" title="statement not covered" >      })</span>
-<span class="cstat-no" title="statement not covered" >  </span>
+<span class="cstat-no" title="statement not covered" >      });</span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      if (Number(accountSender.balance) &lt; 0) {</span>
-<span class="cstat-no" title="statement not covered" >        throw new Error(`${fromUsername} doesn't have enough to send ${amount}`)</span>
+<span class="cstat-no" title="statement not covered" >        throw new Error(</span>
+<span class="cstat-no" title="statement not covered" >          `${fromUsername} doesn't have enough to send ${amount}`</span>
+<span class="cstat-no" title="statement not covered" >        );</span>
 <span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >      </span>
+<span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >      const accountRecipient = tx.account.update({</span>
 <span class="cstat-no" title="statement not covered" >        data: {</span>
 <span class="cstat-no" title="statement not covered" >          balance: {</span>
@@ -277,12 +283,12 @@ export class HandleTransferGateway implements HandleTransferBoundary {
 <span class="cstat-no" title="statement not covered" >          id: recipient.accountId,</span>
 <span class="cstat-no" title="statement not covered" >        },</span>
 <span class="cstat-no" title="statement not covered" >      });</span>
-<span class="cstat-no" title="statement not covered" >  </span>
-<span class="cstat-no" title="statement not covered" >      return accountRecipient</span>
-<span class="cstat-no" title="statement not covered" >    })</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    if(!transfer) {</span>
-<span class="cstat-no" title="statement not covered" >      throw new Error("Transferencia não realizada")</span>
+<span class="cstat-no" title="statement not covered" >      return accountRecipient;</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
+<span class="cstat-no" title="statement not covered" ></span>
+<span class="cstat-no" title="statement not covered" >    if (!transfer) {</span>
+<span class="cstat-no" title="statement not covered" >      throw new Error("Transferencia não realizada");</span>
 <span class="cstat-no" title="statement not covered" >    }</span>
 <span class="cstat-no" title="statement not covered" ></span>
 <span class="cstat-no" title="statement not covered" >    const addTransfer = await prisma.transactions.create({</span>
@@ -290,11 +296,11 @@ export class HandleTransferGateway implements HandleTransferBoundary {
 <span class="cstat-no" title="statement not covered" >        creditedAccountId: recipient.accountId,</span>
 <span class="cstat-no" title="statement not covered" >        debitedAccountId: sender.accountId,</span>
 <span class="cstat-no" title="statement not covered" >        value: Number(amount),</span>
-<span class="cstat-no" title="statement not covered" >        createdAt: new Date()</span>
-<span class="cstat-no" title="statement not covered" >      }</span>
-<span class="cstat-no" title="statement not covered" >    })</span>
+<span class="cstat-no" title="statement not covered" >        createdAt: new Date(),</span>
+<span class="cstat-no" title="statement not covered" >      },</span>
+<span class="cstat-no" title="statement not covered" >    });</span>
 <span class="cstat-no" title="statement not covered" ></span>
-<span class="cstat-no" title="statement not covered" >    return addTransfer</span>
+<span class="cstat-no" title="statement not covered" >    return addTransfer;</span>
 <span class="cstat-no" title="statement not covered" >  }</span>
 }
 &nbsp;</pre></td></tr></table></pre>
@@ -304,7 +310,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-11-23T20:26:02.274Z
+                at 2022-11-24T14:59:15.650Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
