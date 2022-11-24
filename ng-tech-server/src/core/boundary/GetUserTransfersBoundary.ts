@@ -1,13 +1,5 @@
 import idUserRequest from "../../entrypoint/request/IdUserRequest";
 
-interface Transactions {
-  id: string;
-  debitedUsername: string | undefined;
-  creditedUsername: string | undefined;
-  value: number;
-  createdAt: any;
-}
-
 export default interface GetUserTranfersBoundary {
-  execute: (id: idUserRequest) => Promise<(Transactions | undefined)[]>;
+  execute: (id: idUserRequest) => Promise<unknown>;
 }

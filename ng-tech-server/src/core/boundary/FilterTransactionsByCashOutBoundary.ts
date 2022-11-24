@@ -1,16 +1,10 @@
+import { Transactions } from "@prisma/client";
 import FilterTransactionsRequest from "../../entrypoint/request/FilterTransactionRequest";
 
-interface Transactions {
-  debitedUsername: string | undefined;
-  creditedUsername: string | undefined;
-  value: any;
-  createdAt: any;
-}
-
-export default interface FilterTransactionsByCashInBoundary {
+export default interface FilterTransactionsByCashOutBoundary {
   execute: ({
     id,
   }: FilterTransactionsRequest) => Promise<
-    (Transactions | undefined)[] | undefined
+   unknown
   >;
 }

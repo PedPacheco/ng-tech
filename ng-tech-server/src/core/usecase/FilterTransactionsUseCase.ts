@@ -5,9 +5,9 @@ import FilterTransactionsByCashInBoundary from "../boundary/FilterTransactionsBy
 
 export class FilterTransactionsUseCase {
   public constructor(
-    private readonly dateBoundary: FilterTransactionsByDateBoundary,
     private readonly cashInBoundary: FilterTransactionsByCashInBoundary,
-    private readonly cashOutBoundary: FilterTransactionsByCashOutBoundary
+    private readonly cashOutBoundary: FilterTransactionsByCashOutBoundary,
+    private readonly dateBoundary: FilterTransactionsByDateBoundary,
   ) {
     this.dateBoundary = dateBoundary;
     this.cashInBoundary = cashInBoundary;
@@ -15,17 +15,17 @@ export class FilterTransactionsUseCase {
   }
   execute({ id, filter, date }: FilterTransactionsRequest) {
     if (filter === "transacoes-data") {
-      const response = this.dateBoundary.execute({ id, filter, date });
+      const response = this.dateBoundary.execute({ id, date });
       return response;
     }
 
     if (filter === "transacoes-cash-out") {
-      const response = this.cashOutBoundary.execute({ id, filter });
+      const response = this.cashOutBoundary.execute({ id });
       return response;
     }
 
     if (filter === "transacoes-cash-in") {
-      const response = this.cashInBoundary.execute({ id, filter });
+      const response = this.cashInBoundary.execute({ id });
       return response;
     }
   }

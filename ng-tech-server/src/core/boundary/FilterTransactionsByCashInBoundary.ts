@@ -1,16 +1,10 @@
-import FilterTransactionsRequest from "../../entrypoint/request/FilterTransactionRequest";
 
-interface Transactions {
-  debitedUsername: string | undefined;
-  creditedUsername: string | undefined;
-  value: any;
-  createdAt: any;
-}
+import FilterTransactionsRequest from "../../entrypoint/request/FilterTransactionRequest";
 
 export default interface FilterTransactionsByCashInBoundary {
   execute: ({
-    id,
+    id
   }: FilterTransactionsRequest) => Promise<
-    (Transactions | undefined)[] | undefined
+    unknown
   >;
 }

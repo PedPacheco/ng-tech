@@ -1,11 +1,12 @@
-import FilterTransactionsBoundary from "../../core/boundary/FilterTransactionsByDateBoundary";
-import FilterTransactions from "../../entrypoint/request/FilterTransactionRequest";
+
+import FilterTransactionsByDateBoundary from "../../core/boundary/FilterTransactionsByDateBoundary";
+import FilterTransactionsRequest from "../../entrypoint/request/FilterTransactionRequest";
 import prisma from "../client/client";
 
 export class FilterTransactionsByDateGateway
-  implements FilterTransactionsBoundary
+  implements FilterTransactionsByDateBoundary
 {
-  public async execute({ id, date }: FilterTransactions) {
+  public async execute({ id, date }: FilterTransactionsRequest) {
     if (date) {
       const filterDate = new Date(date);
 

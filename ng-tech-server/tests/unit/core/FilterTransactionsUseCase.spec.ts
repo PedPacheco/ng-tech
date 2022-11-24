@@ -1,12 +1,15 @@
+import FilterTransactionsByCashOutBoundary from "../../../src/core/boundary/FilterTransactionsByCashOutBoundary";
+import FilterTransactionsByCashInBoundary from "../../../src/core/boundary/FilterTransactionsByCashOutBoundary";
+import FilterTransactionsByDateBoundary from "../../../src/core/boundary/FilterTransactionsByDateBoundary";
 import { FilterTransactionsUseCase } from "../../../src/core/usecase/FilterTransactionsUseCase";
 import { FilterTransactionsByCashInGateway } from "../../../src/dataprovider/gateway/FilterTransactionsByCashInGateway";
 import { FilterTransactionsByCashOutGateway } from "../../../src/dataprovider/gateway/FilterTransactionsByCashOutGateway";
 import { FilterTransactionsByDateGateway } from "../../../src/dataprovider/gateway/FilterTransactionsByDateGateway";
 
 describe("FilterTransactionsUseCase", () => {
-  let gatewayCashIn: FilterTransactionsByCashInGateway;
-  let gatewayCashOut: FilterTransactionsByCashOutGateway;
-  let gatewayDate: FilterTransactionsByDateGateway;
+  let gatewayCashIn: FilterTransactionsByCashInBoundary;
+  let gatewayCashOut: FilterTransactionsByCashOutBoundary;
+  let gatewayDate: FilterTransactionsByDateBoundary;
   let useCase: FilterTransactionsUseCase;
 
   beforeEach(() => {
@@ -76,7 +79,7 @@ describe("FilterTransactionsUseCase", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "17/05/2022",
       },
     ]);
   });
