@@ -26,4 +26,20 @@ describe("HandleTransferUseCase", () => {
     expect(spyGateway).toHaveBeenCalledWith(HandleTransferMock);
     expect(response).toEqual(Transaction);
   });
+
+  test(`Quando for feita a chamada do useCase
+  Então o gateway deve ser chamado corretamente`, async () => {
+    const spyGateway = jest
+      .spyOn(gateway, "execute")
+      .mockResolvedValue(Transaction);
+
+    const response = await useCase.execute({
+      fromUsername: "pedro",
+      toUsername: "pedro",
+      amount: 20,
+    });
+
+    expect(spyGateway).toHaveBeenCalledTimes(0);
+    expect(response).toEqual(undefined);
+  });
 });

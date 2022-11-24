@@ -40,11 +40,4 @@ export const dateTransactionsResponse = [
     value: 68,
     createdAt: "17/05/2021",
   },
-  {
-    id: "3",
-    debitedAccountId: "2",
-    creditedAccountId: "1",
-    value: 242,
-    createdAt: "21/07/2022",
-  },
 ];

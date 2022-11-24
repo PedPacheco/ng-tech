@@ -98,7 +98,7 @@ export default function Login() {
             >
               entrar
             </button>
-            <p className="w-72 h-9 bg-transparent text-zinc-700 self-start font-medium ">
+            <p className="w-72 h-9 bg-transparent text-zinc-700 self-start font-medium">
               Não tem uma conta?{" "}
               <Link href="cadastrar" className="text-[#8257E5]">
                 Cadastre-se

@@ -51,7 +51,7 @@ export function SendTransaction({
           <button
             onClick={() => handleTransfer(username, amount)}
             disabled={disabled}
-            className="w-64 lg:w-[480px] h-8 lg:h-10 text-zinc-900 text-lg bg-white border-2 border-zinc-500 hover:text-zinc-600 transition-colors flex items-center justify-center py-1 mt-4 mb-10 rounded-xl font-medium"
+            className="w-64 lg:w-[480px] h-8 lg:h-10 text-zinc-900 text-lg bg-white border-2 border-zinc-500 hover:text-zinc-600 transition-colors flex items-center justify-center py-1 mt-4 mb-10 rounded-xl font-medium cursor-pointer"
           >
             Transferir
           </button>

@@ -6,6 +6,10 @@ export class HandleTransferUseCase {
     this.boundary = boundary;
   }
   execute({amount, fromUsername, toUsername}: HandleTransferRequest) {
+    if(fromUsername === toUsername) {
+      return
+    }
+    
     const response = this.boundary.execute({amount, fromUsername, toUsername});
 
     return response;

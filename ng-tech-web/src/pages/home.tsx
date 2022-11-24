@@ -2,6 +2,7 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import { parseCookies } from "nookies";
+import { Warning } from "phosphor-react";
 import { useEffect, useState } from "react";
 import { Header } from "~/components/Header";
 import { SendTransaction } from "~/components/SendTransaction";
@@ -16,6 +17,7 @@ export interface User {
 
 export default function Home() {
   const { token, userCookies } = parseCookies();
+  const [userIsEqual, setUserIsEqual] = useState<boolean>(false);
   const [user, setUser] = useState<User>();
   const [disabled, setDisabled] = useState<boolean>(false);
 
@@ -35,6 +37,12 @@ export default function Home() {
   async function handleTransfer(username: string, amount: string) {
     setDisabled(true);
     if (!username || !amount) {
+      return;
+    }
+
+    if (username === user?.username) {
+      setUserIsEqual(true);
+      setDisabled(false);
       return;
     }
 
@@ -63,6 +71,30 @@ export default function Home() {
       <Header username={user?.username} />
       <SendTransaction handleTransfer={handleTransfer} disabled={disabled} />
       <TransactionTable />
+
+      <div
+        className={`${
+          userIsEqual ? "block" : "hidden"
+        } fixed top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] bg-white shadow-xl w-[420px] h-52 rounded border-2`}
+      >
+        <div className="flex w-full mx-auto items-center justify-center">
+          <div className="flex flex-col items-center justify-around py-2 w-full">
+            <Warning size={60} className="text-red-600" />
+            <h1 className="font-semibold text-xl">
+              TRANSFERÊNCIA NÃO REALIZADA
+            </h1>
+            <p className="font-medium mt-4">
+              Não é possível fazer a transferência para esse usuário !
+            </p>
+            <button
+              className="w-12 h-8 bg-black text-white transition-colors rounded mt-6"
+              onClick={() => setUserIsEqual(false)}
+            >
+              Ok
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

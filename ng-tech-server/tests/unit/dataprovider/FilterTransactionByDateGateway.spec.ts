@@ -11,48 +11,28 @@ describe("FilterTransactionsByDateGateway", () => {
   });
 
   it(`Quando for feita a chamada do gateway
-        Então as transferências do usuário devem ser retornadas corretamente`, async () => {
-    prismaMock.transactions.findMany.mockResolvedValue(
-      dateTransactionsResponse
-    );
-    prismaMock.users.findUnique.mockResolvedValue(userAccountId1Mock);
-
-    const response = await gateway.execute({ id: "1", date: "21-07-2022" });
-
-    expect(response).toEqual([
-      {
-        createdAt: "21/07/2022",
-        debitedUsername: "joao",
-        creditedUsername: "joao",
-        value: 242,
-        id: "3",
-      },
-    ]);
-  });
-
-  it(`Quando for feita a chamada do gateway
   Então as transferências do usuário devem ser retornadas corretamente`, async () => {
     prismaMock.transactions.findMany.mockResolvedValue(
       dateTransactionsResponse
     );
     prismaMock.users.findUnique.mockResolvedValue(userAccountId1Mock);
 
-    const response = await gateway.execute({ id: "1", date: "17-05-2021" });
+    const response = await gateway.execute({ id: "1", date: "2021-05-17" });
 
     expect(response).toEqual([
       {
         createdAt: "17/05/2021",
         debitedUsername: "joao",
         creditedUsername: "joao",
-        value: 68,
-        id: "2",
+        value: 20,
+        id: "1",
       },
       {
         createdAt: "17/05/2021",
         debitedUsername: "joao",
         creditedUsername: "joao",
-        value: 20,
-        id: "1",
+        value: 68,
+        id: "2",
       },
     ]);
   });

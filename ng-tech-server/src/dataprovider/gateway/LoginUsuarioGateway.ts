@@ -11,6 +11,7 @@ export class LoginUsuarioGateway implements LoginUsuarioBoundary {
         username,
       },
     });
+    
     if (!user) {
       throw new Error("Usuario não registrado");
     }
