@@ -1,11 +1,21 @@
-FROM node:16.13.1-alpine3.14
+FROM node:alpine
 
-WORKDIR /usr/src/app
+WORKDIR /app
 
-COPY ["package.json", "package-lock.json", "tsconfig.json", ".env", "./"]
+COPY package*.json ./
 
-COPY . /usr/src/app/
+COPY prisma ./prisma/
+
+COPY .env ./
+
+COPY tsconfig.json ./
+
+COPY . .
 
 RUN npm install
 
-CMD ["npm", "run", "dev"]
+RUN npx prisma generate
+
+EXPOSE 3000
+
+CMD npx prisma migrate deploy && npm run dev
