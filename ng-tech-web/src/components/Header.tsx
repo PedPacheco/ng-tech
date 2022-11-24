@@ -37,7 +37,7 @@ export function Header({ username }: HeaderProps) {
     destroyCookie(null, "token");
     destroyCookie(null, "userCookies");
 
-    Router.push("/login");
+    Router.push("/");
   }
 
   return (

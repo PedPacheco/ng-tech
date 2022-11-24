@@ -39,7 +39,7 @@ export default function Login() {
       maxAge: 30 * 24 * 60 * 60,
     });
 
-    Router.push("/");
+    Router.push("/home");
   };
 
   return (
@@ -138,7 +138,7 @@ export default function Login() {
             </button>
             <p className="w-72 h-9 bg-transparent text-zinc-900 self-start font-medium ">
               Já tem uma conta?{" "}
-              <Link href="cadastrar" className="text-[#8257E5]">
+              <Link href="/" className="text-[#8257E5]">
                 Entrar
               </Link>
             </p>
