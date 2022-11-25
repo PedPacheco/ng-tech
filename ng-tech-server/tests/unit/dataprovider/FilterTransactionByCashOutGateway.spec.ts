@@ -21,14 +21,14 @@ describe("FilterTransactionsByCashOutGateway", () => {
 
     expect(response).toEqual([
       {
-        createdAt: "21/07/2022",
+        createdAt: "2022-07-13",
         debitedUsername: "pedro",
         creditedUsername: "pedro",
         id: "3",
         value: 242,
       },
       {
-        createdAt: "17/05/2021",
+        createdAt: "22-05-17",
         debitedUsername: "pedro",
         creditedUsername: "pedro",
         id: "2",

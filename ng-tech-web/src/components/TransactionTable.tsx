@@ -60,7 +60,6 @@ export function TransactionTable() {
     setOpenDateModal(false);
   }
 
-  console.log(transactionsList);
   return (
     <section className="p-4 pt-10 lg:p-10 lg:mt-24 flex items-center justify-center">
       <div className="w-full flex flex-col justify-center items-center border-[1px] border-black rounded lg:min-w-[900px] lg:w-[50%]">

@@ -1,11 +1,12 @@
 import FilterTransactionsByCashOutBoundary from "../../core/boundary/FilterTransactionsByCashOutBoundary";
+import { TransactionsResponse } from "../../core/models/Transactions.model";
 import FilterTransactions from "../../entrypoint/request/FilterTransactionRequest";
 import prisma from "../client/client";
 
 export class FilterTransactionsByCashOutGateway
   implements FilterTransactionsByCashOutBoundary
 {
-  public async execute({ id }: FilterTransactions) {
+  public async execute({ id }: FilterTransactions): Promise<(TransactionsResponse | undefined)[]> {
     const transactions = await prisma.transactions.findMany({
       where: {
         debitedAccountId: id,

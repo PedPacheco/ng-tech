@@ -11,5 +11,5 @@ export const Transaction = {
   creditedAccountId: "1",
   debitedAccountId: "2",
   value: new Prisma.Decimal(20),
-  createdAt: new Date(),
+  createdAt: new Date("2022/05/17"),
 };

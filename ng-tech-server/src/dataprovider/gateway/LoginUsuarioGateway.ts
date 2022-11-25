@@ -16,7 +16,7 @@ export class LoginUsuarioGateway implements LoginUsuarioBoundary {
       throw new Error("Usuario não registrado");
     }
 
-    const checkPassword = bcrypt.compareSync(password, user?.password);
+    const checkPassword = bcrypt.compareSync(password, user.password);
     if (!checkPassword) throw new Error("Senha incorreta");
 
     const token = jwt.sign(

@@ -12,13 +12,13 @@ describe("FilterTransactionController", () => {
   let controller: FilterTransactionsController;
 
   beforeEach(() => {
+    gatewayDate = new FilterTransactionsByDateGateway();
     gatewayCashIn = new FilterTransactionsByCashInGateway();
     gatewayCashOut = new FilterTransactionsByCashOutGateway();
-    gatewayDate = new FilterTransactionsByDateGateway();
     useCase = new FilterTransactionsUseCase(
       gatewayDate,
       gatewayCashIn,
-      gatewayCashOut
+      gatewayCashOut,
     );
     controller = new FilterTransactionsController(useCase);
   });

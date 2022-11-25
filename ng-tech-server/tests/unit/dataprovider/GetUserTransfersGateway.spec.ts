@@ -26,7 +26,7 @@ describe("GetUserTransfersGateway", () => {
         debitedUsername: "pedro",
         creditedUsername: "pedro",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
   });
@@ -43,7 +43,7 @@ describe("GetUserTransfersGateway", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
   });

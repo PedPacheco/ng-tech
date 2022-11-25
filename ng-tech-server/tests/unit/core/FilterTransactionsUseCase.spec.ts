@@ -13,13 +13,14 @@ describe("FilterTransactionsUseCase", () => {
   let useCase: FilterTransactionsUseCase;
 
   beforeEach(() => {
+    gatewayDate = new FilterTransactionsByDateGateway();
     gatewayCashIn = new FilterTransactionsByCashInGateway();
     gatewayCashOut = new FilterTransactionsByCashOutGateway();
-    gatewayDate = new FilterTransactionsByDateGateway();
     useCase = new FilterTransactionsUseCase(
+      gatewayDate,
       gatewayCashIn,
       gatewayCashOut,
-      gatewayDate
+
     );
   });
 
@@ -31,7 +32,7 @@ describe("FilterTransactionsUseCase", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
 
@@ -48,7 +49,7 @@ describe("FilterTransactionsUseCase", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
   });
@@ -61,7 +62,7 @@ describe("FilterTransactionsUseCase", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2022",
+        createdAt: "22-05-17",
       },
     ]);
 
@@ -79,7 +80,7 @@ describe("FilterTransactionsUseCase", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2022",
+        createdAt: "22-05-17",
       },
     ]);
   });
@@ -92,7 +93,7 @@ Então o gatewayCashOut deve ser chamado corretamente`, async () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
 
@@ -109,7 +110,7 @@ Então o gatewayCashOut deve ser chamado corretamente`, async () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
   });

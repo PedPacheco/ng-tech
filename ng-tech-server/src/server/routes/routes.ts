@@ -14,7 +14,7 @@ import { GetUserBalanceModule } from '../module/GetUserBalanceModule';
 export const routes = Router();
 
 routes.post("/cadastrar", validate(schemas.user), expressAdapter(RegisterUserModule))
-routes.post("/login", validate(schemas.user), expressAdapter(LoginUsuarioModule))
+routes.post("/login", expressAdapter(LoginUsuarioModule))
 routes.get("/saldo/:id", verifyJwt, expressAdapter(GetUserBalanceModule))
 routes.put("/transferencia", verifyJwt, expressAdapter(HandleTransferModule))
 routes.get("/transferencia/:id", expressAdapter(GetUserTransfersModule))

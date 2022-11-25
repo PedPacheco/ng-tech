@@ -5,9 +5,9 @@ import { FilterTransactionsByDateGateway } from "../../dataprovider/gateway/Filt
 import { FilterTransactionsController } from "../../entrypoint/controller/FilterTransactionsController";
 
 export const FilterTransactionsModule = (): FilterTransactionsController => {
+  const dateGateway = new FilterTransactionsByDateGateway();
   const cashInGateway = new FilterTransactionsByCashInGateway();
   const cashOutGateway = new FilterTransactionsByCashOutGateway();
-  const dateGateway = new FilterTransactionsByDateGateway();
 
   const usecase = new FilterTransactionsUseCase(
     dateGateway,

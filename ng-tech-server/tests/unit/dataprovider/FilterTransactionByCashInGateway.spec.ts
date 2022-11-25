@@ -21,7 +21,7 @@ describe("FilterTransactionsByCashInGateway", () => {
 
     expect(response).toEqual([
       {
-        createdAt: "17/05/2021",
+        createdAt: "22-05-17",
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,

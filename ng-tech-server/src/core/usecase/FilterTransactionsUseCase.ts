@@ -5,9 +5,9 @@ import FilterTransactionsByCashInBoundary from "../boundary/FilterTransactionsBy
 
 export class FilterTransactionsUseCase {
   public constructor(
+    private readonly dateBoundary: FilterTransactionsByDateBoundary,
     private readonly cashInBoundary: FilterTransactionsByCashInBoundary,
     private readonly cashOutBoundary: FilterTransactionsByCashOutBoundary,
-    private readonly dateBoundary: FilterTransactionsByDateBoundary,
   ) {
     this.dateBoundary = dateBoundary;
     this.cashInBoundary = cashInBoundary;

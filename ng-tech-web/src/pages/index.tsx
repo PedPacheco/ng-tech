@@ -7,6 +7,7 @@ import Router from "next/router";
 import { setCookie } from "nookies";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { ModalError } from "~/components/ErrorModal";
 import { Input } from "~/components/Input";
 
 export default function Login() {
@@ -16,10 +17,11 @@ export default function Login() {
     formState: { errors },
   } = useForm<FieldValues>();
   const [disabled, setDisabled] = useState<boolean>(false);
+  const [error, setError] = useState<string>("");
+  const [errorIsTrue, setErrorIsTrue] = useState<boolean>(false);
 
   const handleLogin: SubmitHandler<FieldValues> = async (data) => {
     setDisabled(true);
-
     const response = await axios
       .post("http://localhost:3333/login", {
         username: data.username,
@@ -27,14 +29,21 @@ export default function Login() {
       })
       .then((response) => {
         return response.data;
+      })
+      .catch((error) => {
+        setDisabled(false);
+        setError(error.response.data);
+        setErrorIsTrue(true);
       });
 
-    const user = JSON.stringify(response.user);
+    if (response) {
+      const user = JSON.stringify(response.user);
 
-    setCookie(undefined, "token", response.token);
-    setCookie(undefined, "userCookies", user);
+      setCookie(undefined, "token", response.token);
+      setCookie(undefined, "userCookies", user);
 
-    Router.push("/home");
+      Router.push("/home");
+    }
   };
 
   return (
@@ -106,6 +115,15 @@ export default function Login() {
             </p>
           </div>
         </form>
+
+        {errorIsTrue ? (
+          <ModalError
+            message={error}
+            title="LOGIN NÃO REALIZADA"
+            errorIsTrue={errorIsTrue}
+            setErrorIsTrue={setErrorIsTrue}
+          />
+        ) : null}
       </div>
     </>
   );

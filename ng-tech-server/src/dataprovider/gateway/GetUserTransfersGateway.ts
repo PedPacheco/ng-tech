@@ -1,9 +1,10 @@
 import GetUserTransfersBoundary from "../../core/boundary/GetUserTransfersBoundary";
+import { TransactionsResponse } from "../../core/models/Transactions.model";
 import idUserRequest from "../../entrypoint/request/IdUserRequest";
 import prisma from "../client/client";
 
 export class GetUserTransfersGateway implements GetUserTransfersBoundary {
-  public async execute({ id }: idUserRequest) {
+  public async execute({ id }: idUserRequest): Promise<(TransactionsResponse | undefined)[]>  {
     const transactions = await prisma.transactions.findMany({
       where: {
         OR: [

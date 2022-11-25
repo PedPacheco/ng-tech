@@ -24,4 +24,15 @@ describe("LoginUsuarioGateway", () => {
 
     expect(response).toEqual(expect.anything());
   });
+
+  it(`Quando for feita a chamada do gateway e a senha for incorreta
+  Então um erro deve ser disparado corretamente`, async () => {
+    prismaMock.users.findUnique.mockResolvedValue(LoginUserResponseMock);
+
+    try {
+      await gateway.execute({username: "pedro", password: "fsdfdsg"});
+    } catch (e) {
+      expect(e).toMatch("Senha incorreta");
+    }
+  });
 });

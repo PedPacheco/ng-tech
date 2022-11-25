@@ -21,7 +21,7 @@ describe("GetUserTransferController", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
 
@@ -35,7 +35,7 @@ describe("GetUserTransferController", () => {
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
-        createdAt: "17/05/2003",
+        createdAt: "22-05-17",
       },
     ]);
   });

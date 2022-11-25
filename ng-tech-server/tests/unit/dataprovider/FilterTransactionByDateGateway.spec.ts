@@ -21,19 +21,31 @@ describe("FilterTransactionsByDateGateway", () => {
 
     expect(response).toEqual([
       {
-        createdAt: "17/05/2021",
+        createdAt: "22-05-17",
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 20,
         id: "1",
       },
       {
-        createdAt: "17/05/2021",
+        createdAt: "22-05-17",
         debitedUsername: "joao",
         creditedUsername: "joao",
         value: 68,
         id: "2",
       },
     ]);
+  });
+
+  it(`Quando for feita a chamada do gateway sem a data
+  Então deve ser retornado undefined`, async () => {
+    prismaMock.transactions.findMany.mockResolvedValue(
+      dateTransactionsResponse
+    );
+    prismaMock.users.findUnique.mockResolvedValue(userAccountId1Mock);
+
+    const response = await gateway.execute({ id: "1", date: "" });
+
+    expect(response).toBeUndefined()
   });
 });

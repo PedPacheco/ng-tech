@@ -20,14 +20,12 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       },
     });
 
-    if (!sender) {
-      throw new Error("Usuario não existe");
+    if(!sender) {
+      throw new Error("O usuário não existe");
     }
 
     if (!recipient) {
-      throw new Error(
-        "O usuario que você está tentando fazer a transferencia não existe"
-      );
+      throw new Error("O usuário não existe");
     }
 
     const transfer = await prisma.$transaction(async (tx: any) => {
@@ -43,9 +41,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
       });
 
       if (Number(accountSender.balance) < 0) {
-        throw new Error(
-          `${fromUsername} doesn't have enough to send ${amount}`
-        );
+        throw new Error(`Dinheiro insuficiente`);
       }
 
       const accountRecipient = tx.account.update({
@@ -63,7 +59,7 @@ export class HandleTransferGateway implements HandleTransferBoundary {
     });
 
     if (!transfer) {
-      throw new Error("Transferencia não realizada");
+      throw new Error("Não foi possível fazer a transferência");
     }
 
     const addTransfer = await prisma.transactions.create({

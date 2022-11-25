@@ -3,7 +3,7 @@ export const ResponseMock = {
   debitedUsername: "pedro",
   creditedUsername: "joao",
   value: 20,
-  createdAt: "17/05/2003",
+  createdAt: "22-05-17",
 };
 
 export const ResponseTransaction = {
@@ -11,7 +11,7 @@ export const ResponseTransaction = {
   debitedAccountId: "1",
   creditedAccountId: "2",
   value: 20,
-  createdAt: "17/05/2003",
+  createdAt: "22-05-17",
 };
 
 export const userAccountId2Mock = {
